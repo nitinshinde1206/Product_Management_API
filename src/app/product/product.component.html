@@ -1,0 +1,67 @@
+<mat-toolbar color="primary">
+    <span>Product management system</span>
+
+    <div class="spacer"></div>
+    <p-toast></p-toast>
+
+    <p-dialog header="Add New Product Details Below:  " [(visible)]="display" [style]="{width: '30vw'}">
+        <app-addproduct (dataAddedsSuccess)="closeDialog($event)"></app-addproduct>
+    </p-dialog>
+
+    <div class="p-field p-grid">
+        <p-dropdown [options]="languages" [(ngModel)]="selectedLanguage" 
+        (ngModelChange)="onLanguageSelected($event)" placeholder="Select a Language" 
+        optionLabel="name"></p-dropdown>
+    </div>
+
+
+    <button pButton type="button" label="Louout" class="p-button-danger m-3" (click)="logout()"></button>
+
+    <p-button (click)="addProduct()" icon="pi pi-external-link" label="Add Product"></p-button>
+
+    <p-dialog header="Update Product Details: " [(visible)]="displayUpdate" [style]="{width: '30vw'}">
+        <app-update-product (dataUpdatedSuccess)="updateCloseDialog($event)" [productDetails]="toBeUpdateProduct">
+        </app-update-product>
+    </p-dialog>
+
+    <p-dialog header="Product Details" [(visible)]="displaydetails" [style]="{width: '50vw'}">
+        <app-details [productDetails]="displayProduct"></app-details>
+    </p-dialog>
+
+</mat-toolbar>
+
+<br>
+<h4>Product Details Fetched from .Net Core Web API</h4>
+
+<table class="table table-bordered" border="1">
+    <tr>
+        <th align="center">Product Id</th>
+        <th>Product Name</th>
+        <th align="center">Product Code</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th align="center">Star Rating</th>
+        <th>ImageUrl</th>
+        <th align="center">Update</th>
+        <th align="center">Delete</th>
+    </tr>
+
+
+    <tr *ngFor="let item of products">
+        <td align="center">{{item.productId}}</td>
+        <td class="cursorHand" style="color: blue;" (click)="showDetails(item)">{{item.productName | titlecase}}</td>
+        <td align="center">{{item.productCode}}</td>
+        <td align="center">{{item.price | currency:"INR"}}</td>
+        <td>{{item.description | titlecase}}</td>
+        <td align="center">{{item.starRating}}</td>
+        <td>{{item.imageUrl}}</td>
+
+        <td>
+            <p-button (click)="updateDialogDisplay(item)" label="Update"></p-button>
+        </td>
+        <td align="center">
+            <button pButton type="button" label="Delete" class="p-button-danger"
+                (click)="delete(item.productId)"></button>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,70 @@
+<p-toast></p-toast>
+
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()" > 
+    <div class="p-fluid">
+        <div class="p-field p-grid">
+            <label for="firstname" class="p-col-12 p-mb-4 p-md-4 p-mb-md-0">Product Name:</label>
+            <div class="p-col-12 p-md-8">
+                <input formControlName="ProductName" id="ProductName" type="text" pInputText> 
+                <div *ngIf="profileForm.controls['ProductName'].invalid && (profileForm.controls['ProductName'].dirty || profileForm.controls['ProductName'].touched)" class="alert">
+                    <span [ngStyle]="{color:'red'}">Please enter Product Name</span>
+                </div>
+            </div>
+        </div>
+        <div class="p-field p-grid">
+            <label for="firstname" class="p-col-12 p-mb-4 p-md-4 p-mb-md-0">Product ID:</label>
+            <div class="p-col-12 p-md-8">
+                <input formControlName="ProductId" id="ProductId" type="text" pInputText> 
+                <div *ngIf="profileForm.controls['ProductId'].invalid && (profileForm.controls['ProductId'].dirty || profileForm.controls['ProductId'].touched)" class="alert">
+                    <span [ngStyle]="{color:'red'}">Please enter Product ID</span>
+                </div>
+            </div>
+        </div>
+        <div class="p-field p-grid">
+            <label for="firstname" class="p-col-12 p-mb-4 p-md-4 p-mb-md-0">Product Code:</label>
+            <div class="p-col-12 p-md-8">
+                <input formControlName="ProductCode" id="ProductCode" type="text" pInputText> 
+                <div *ngIf="profileForm.controls['ProductCode'].invalid && (profileForm.controls['ProductCode'].dirty || profileForm.controls['ProductCode'].touched)" class="alert">
+                    <span [ngStyle]="{color:'red'}">Please enter Product Code</span>
+                </div>
+            </div>
+        </div>
+        <div class="p-field p-grid">
+            <label for="lastname" class="p-col-12 p-mb-4 p-md-4 p-mb-md-0">Price</label>
+            <div class="p-col-12 p-md-8">
+                <input formControlName="Price" id="Price" type="number" pInputText> 
+                <div *ngIf="profileForm.controls['Price'].invalid && (profileForm.controls['Price'].dirty || profileForm.controls['Price'].touched)" class="alert">
+                    <span [ngStyle]="{color:'red'}">Please enter correct price</span>
+                </div>
+            </div>
+        </div>
+        <div class="p-field p-grid">
+            <label for="firstname" class="p-col-12 p-mb-4 p-md-4 p-mb-md-0">Product Description:</label>
+            <div class="p-col-12 p-md-8">
+                <input formControlName="Description" id="Description" type="text" pInputText> 
+                <div *ngIf="profileForm.controls['Description'].invalid && (profileForm.controls['Description'].dirty || profileForm.controls['Description'].touched)" class="alert">
+                    <span [ngStyle]="{color:'red'}">Please enter Product Description</span>
+                </div>
+            </div>
+        </div>
+        <div class="p-field p-grid">
+            <label for="lastname" class="p-col-12 p-mb-4 p-md-4 p-mb-md-0">Rating (out of 5)</label>
+            <div class="p-col-12 p-md-8">
+                <p-dropdown [options]=[1,2,3,4,5] formControlName="StarRating"></p-dropdown>
+                <!-- <input  formControlName="StarRating" id="StarRating" type="text" pInputText>  -->
+            </div>
+        </div>
+        <div class="p-field p-grid">
+            <label for="firstname" class="p-col-12 p-mb-4 p-md-4 p-mb-md-0">Product Image URL:</label>
+            <div class="p-col-12 p-md-8">
+                <input formControlName="ImageUrl" id="ImageUrl" type="text" pInputText> 
+            </div>
+        </div>
+        <br>
+
+        <div class="p-grid p-jc-end">
+            <p-button pRipple label="Submit" [disabled]='!this.profileForm.valid' type="submit" class="p-mt-4 p-mx-2"></p-button>
+        </div>
+
+    </div>
+</form>

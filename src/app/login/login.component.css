@@ -1,0 +1,16 @@
+.loginBox{
+    padding: 100px;
+    width: 13cm;
+    height: 50ch;
+    outline-style: double;    
+    background-color: lightblue;
+    margin-left: 51ch;
+    margin-top: 12ch; 
+}
+
+.cursor{
+    cursor: pointer;
+    text-align: center;
+    
+    
+}

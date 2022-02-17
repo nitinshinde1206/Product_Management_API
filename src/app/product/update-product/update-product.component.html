@@ -1,0 +1,71 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()" > 
+    <div class="p-fluid">
+        <div class="p-field p-grid">
+            <label for="firstname" class="p-col-12 p-mb-4 p-md-4 p-mb-md-0">Product Name:</label>
+            <div class="p-col-12 p-md-8">
+                <input formControlName="productName" id="ProductName" type="text" pInputText> 
+                <div *ngIf="profileForm.controls['productName'].invalid && (profileForm.controls['productName'].dirty || profileForm.controls['productName'].touched)" class="alert">
+                    <span [ngStyle]="{color:'red'}">Please enter Product Name</span>
+                </div>
+            </div>
+        </div>
+        <div class="p-field p-grid">
+            <label for="firstname" class="p-col-12 p-mb-4 p-md-4 p-mb-md-0">Product ID:</label>
+            <div class="p-col-12 p-md-8">
+                <input formControlName="productId" id="ProductId" type="text" pInputText> 
+                <div *ngIf="profileForm.controls['productId'].invalid && (profileForm.controls['productId'].dirty || profileForm.controls['productId'].touched)" class="alert">
+                    <span [ngStyle]="{color:'red'}">Please enter Product ID</span>
+                </div>
+            </div>
+        </div>
+        <div class="p-field p-grid">
+            <label for="firstname" class="p-col-12 p-mb-4 p-md-4 p-mb-md-0">Product Code:</label>
+            <div class="p-col-12 p-md-8">
+                <input formControlName="productCode" id="ProductCode" type="text" pInputText> 
+                <div *ngIf="profileForm.controls['productCode'].invalid && (profileForm.controls['productCode'].dirty || profileForm.controls['productCode'].touched)" class="alert">
+                    <span [ngStyle]="{color:'red'}">Please enter Product Code</span>
+                </div>
+            </div>
+        </div>
+        <div class="p-field p-grid">
+            <label for="lastname" class="p-col-12 p-mb-4 p-md-4 p-mb-md-0">Price</label>
+            <div class="p-col-12 p-md-8">
+                <input formControlName="price" id="Price" type="number" pInputText> 
+                <div *ngIf="profileForm.controls['price'].invalid && (profileForm.controls['price'].dirty || profileForm.controls['price'].touched)" class="alert">
+                    <span [ngStyle]="{color:'red'}">Please enter correct price</span>
+                </div>
+            </div>
+        </div>
+        <div class="p-field p-grid">
+            <label for="firstname" class="p-col-12 p-mb-4 p-md-4 p-mb-md-0">Product Description:</label>
+            <div class="p-col-12 p-md-8">
+                <input formControlName="description" id="Description" type="text" pInputText> 
+                <div *ngIf="profileForm.controls['description'].invalid && (profileForm.controls['description'].dirty || profileForm.controls['description'].touched)" class="alert">
+                    <span [ngStyle]="{color:'red'}">Please enter Product Description</span>
+                </div>
+            </div>
+        </div>
+        <div class="p-field p-grid">
+            <label for="lastname" class="p-col-12 p-mb-4 p-md-4 p-mb-md-0">Rating (out of 5)</label>
+            <div class="p-col-12 p-md-8">
+                <p-dropdown [options]=[1,2,3,4,5] formControlName="starRating"></p-dropdown>
+                <!-- <input  formControlName="StarRating" id="StarRating" type="text" pInputText>  -->
+            </div>
+        </div>
+        <div class="p-field p-grid">
+            <label for="firstname" class="p-col-12 p-mb-4 p-md-4 p-mb-md-0">Product Image URL:</label>
+            <div class="p-col-12 p-md-8">
+                <input formControlName="imageUrl" id="ImageUrl" type="text" pInputText> 
+                <!-- <div *ngIf="profileForm.controls['productName'].invalid && (profileForm.controls['productName'].dirty || profileForm.controls['productName'].touched)" class="alert">
+                    <span [ngStyle]="{color:'red'}">Please enter Product Name</span>
+                </div> -->
+            </div>
+        </div>
+        <br>
+
+        <div class="p-grid p-jc-end">
+            <p-button pRipple label="Submit" [disabled]='!this.profileForm.valid' type="submit" class="p-mt-4 p-mx-2"></p-button>
+        </div>
+
+    </div>
+</form>

@@ -1,0 +1,36 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="loginBox">
+        <div class="p-fluid">
+            <h2>Product Management App Login</h2>
+            <div class="p-field p-grid">
+                <label for="firstname" class="p-col-12 p-mb-4 p-md-4 p-mb-md-0">Username</label>
+                <div class="p-col-12 p-md-8">
+                    <input formControlName="UserName" id="UserName" placeholder="Username" type="text" pInputText>
+                    <div *ngIf="loginForm.controls['UserName'].invalid && (loginForm.controls['UserName'].dirty || loginForm.controls['UserName'].touched)"
+                        class="alert">
+                        <span [ngStyle]="{color:'red'}">Please enter UserName</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-fluid">
+            <div class="p-field p-grid">
+                <label for="firstname" class="p-col-12 p-mb-4 p-md-4 p-mb-md-0">Password</label>
+                <div class="p-col-12 p-md-8">
+                    <input formControlName="Password" id="Password" placeholder="Password" type="password" pInputText>
+                    <div *ngIf="loginForm.controls['Password'].invalid && (loginForm.controls['Password'].dirty || loginForm.controls['Password'].touched)"
+                        class="alert">
+                        <span [ngStyle]="{color:'red'}">Please enter Password</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <div class="p-grid p-jc-end cursor">
+            <p-button pRipple label="Login" [disabled]='!this.loginForm.valid' type="submit" class="p-mt-4 p-mx-2">
+            </p-button>
+        </div>
+    </div>
+</form>
